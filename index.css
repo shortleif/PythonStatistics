@@ -1,0 +1,104 @@
+/* Base Font Settings */
+body {
+  font-family: 'Inter', sans-serif;
+  scrollbar-gutter: stable;
+}
+
+.code-font {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Animations & Transitions */
+.sidebar-transition {
+  transition: transform 0.3s ease-in-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- LIST STYLING (Hanging Indent) --- */
+
+/* Reset */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* General List Item */
+.custom-list li,
+ul li {
+  position: relative;
+  padding-left: 2rem; /* The "Gutter" size */
+  margin-bottom: 0.75rem; /* Spacing between items */
+  line-height: 1.8; /* Relaxed line height */
+  color: #94a3b8; /* slate-400 */
+}
+
+/* Bullet Style */
+.custom-list li::before,
+ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0.5rem; /* Center in the gutter */
+  /* CHANGED: Moved further up to align centers */
+  top: -8px;
+  color: #22d3ee; /* Cyan Accent */
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Numbered Lists */
+ol {
+  counter-reset: item;
+}
+
+ol li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.8;
+  color: #94a3b8;
+}
+
+ol li::before {
+  counter-increment: item;
+  content: counter(item) '.';
+  position: absolute;
+  left: 0;
+  top: 0; /* Numbers usually align okay at top:0 due to line-height */
+  color: #f59e0b; /* Amber Accent */
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  width: 1.5rem;
+  text-align: right;
+}
